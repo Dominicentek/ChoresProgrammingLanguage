@@ -49,7 +49,7 @@ Variable names don't take up anything, however their values do. A number takes u
 since it is 32-bit. A string takes up the same amount of bytes as it has characters. That
 means 1 character = 1 byte.
 ### House layout
-The image below shows the layout of the house.
+The image below shows the layout of the house.<br>
 ![House Layout](https://cdn.discordapp.com/attachments/719446728402796657/1059429840656281661/image.png)
 ### Program Properties
 There are a few properties that tell the interpreter what to do. These properties are
