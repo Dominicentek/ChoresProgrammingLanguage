@@ -7,9 +7,9 @@ import java.util.HashMap;
 
 public abstract class Instruction {
     public static HashMap<String, Instruction> instructions = new HashMap<>();
-    public static void execute(String line) {
+    public static boolean execute(String line) {
         if (line.contains("#")) line = line.substring(0, line.indexOf('#'));
-        if (line.isEmpty()) return;
+        if (line.isEmpty()) return false;
         String[] args = line.split(" ");
         Instruction instruction = instructions.get(args[0]);
         if (instruction == null) throw new InstructionNotFoundException("Instruction " + args[0] + " doesn't exist");
@@ -19,6 +19,7 @@ public abstract class Instruction {
             rawArgs += args[i];
         }
         instruction.execute(Argument.parseArgs(rawArgs));
+        return true;
     }
     public abstract void execute(Argument<?>[] arguments);
     public static void registerInstructions() {

@@ -76,11 +76,10 @@ public class Main {
                 programIndex++;
                 continue;
             }
-            Instruction.execute(lines[programIndex]);
+            if (Instruction.execute(lines[programIndex])) programIndex++;
             if (calculateVariableSize() > getProperty("memsize", VariableType.NUMBER) && getProperty("memsize", VariableType.NUMBER) != 0) throw ChoresException.choresError("You tried remembering too much data");
             if (!House.heldItems.contains(Item.VACUUM_CLEANER) || !House.vacuumRunning) House.executedInstruction();
             if (House.containsDust()) House.remainingDust[House.x][House.y] = false;
-            programIndex++;
         }
     }
     public static Variable getVariable(String name) {
